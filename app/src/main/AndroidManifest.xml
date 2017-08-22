@@ -4,7 +4,7 @@
     android:versionCode="11"
     android:versionName="2.0" >
 
-    <uses-sdk android:minSdkVersion="4" android:targetSdkVersion="14"/>
+    <uses-sdk android:minSdkVersion="14"/>
     
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -12,7 +12,8 @@
 
     <application
         android:icon="@drawable/mood_level_yellow"
-        android:label="@string/app_name" >
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".ui.SimpleWeightControlActivity"
             android:label="@string/app_name" android:screenOrientation="portrait">
