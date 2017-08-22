@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_color">#2e3233</color>
+    <color name="bg_highlight">#404648</color>
+    <color name="tab_background">#515b5e</color>
+    <color name="tab_line">#e2e3df</color>
+    <color name="tab_font_active">#e2e3df</color>
+    <color name="tab_font_idle">#2e3233</color>
+    <color name="transparent">#000000</color>
+    <color name="list_divider">#2e3233</color>
+    <color name="green_color">#00eda2</color>
+    <color name="label_text">#e2e3df</color>
+</resources>

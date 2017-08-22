@@ -1,0 +1,8 @@
+<resources>
+    <integer name="length_min">4</integer>
+    <integer name="length_max">250</integer>
+    <integer name="length_default">12</integer>
+    <integer name="quantity_min">5</integer>
+    <integer name="quantity_max">500</integer>
+    <integer name="quantity_default">10</integer>
+</resources>

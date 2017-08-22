@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- pressed -->
+
+    <item android:drawable="@drawable/ic_menu_save_active" android:state_pressed="true"/>
+
+    <!-- focused/not selected -->
+
+    <item android:drawable="@drawable/ic_menu_save_active" android:state_focused="true" android:state_selected="false"/>
+
+    <!-- focused/selected -->
+
+    <item android:drawable="@drawable/ic_menu_save_active" android:state_focused="true" android:state_selected="true"/>
+
+    <!-- selected -->
+
+    <item android:drawable="@drawable/ic_menu_save_active" android:state_selected="true"/>
+
+    <!-- default -->
+
+    <item android:drawable="@drawable/ic_menu_save"/>
+
+</selector>
