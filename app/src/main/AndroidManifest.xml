@@ -23,7 +23,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.UserSettingsActivity" android:screenOrientation="portrait"></activity>
         <activity android:name=".ui.NewDataActivity" android:screenOrientation="portrait">
         </activity>
         <activity android:name=".ui.UserSummaryActivity" android:screenOrientation="portrait"></activity>

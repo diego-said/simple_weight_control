@@ -1,17 +1,20 @@
 package br.com.doublelogic.ui;
 
-import android.app.Activity;
-import android.content.Intent;
+import android.app.Fragment;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+
 import br.com.doublelogic.R;
 import br.com.doublelogic.bean.UserSettings;
 import br.com.doublelogic.common.constants.Gender;
 import br.com.doublelogic.io.DataHandler;
 
-public class UserSettingsActivity extends Activity {
+public class SettingsFragment extends Fragment {
 
 	private UserSettings userSettings;
 
@@ -20,15 +23,15 @@ public class UserSettingsActivity extends Activity {
 	private EditText editTextHeight;
 	private RadioButton radioMale;
 	private RadioButton radioFemale;
+	private Button buttonConfirm;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.user_settings);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		View view = inflater.inflate(R.layout.settings, container, false);
 
-		loadUIReferences();
+		loadUIReferences(view);
 
-		dataHandler = new DataHandler(this);
+		dataHandler = new DataHandler(getActivity());
 		userSettings = dataHandler.loadUserSettings();
 		if (userSettings != null) {
 			editTextHeight.setText(String.valueOf(userSettings.getHeight()));
@@ -40,25 +43,20 @@ public class UserSettingsActivity extends Activity {
 				radioMale.setChecked(true);
 			}
 		}
+
+		return view;
 	}
 
-	@Override
-	public void finish() {
-		if (userSettings == null) {
-			userSettings = new UserSettings();
-		}
-
-		Intent data = new Intent();
-		data.putExtra(UserSettings.KEY, userSettings);
-
-		setResult(RESULT_OK, data);
-		super.finish();
-	}
-
-	private void loadUIReferences() {
-		editTextHeight = (EditText) findViewById(R.id.editTextHeight);
-		radioMale = (RadioButton) findViewById(R.id.radioMale);
-		radioFemale = (RadioButton) findViewById(R.id.radioFemale);
+	private void loadUIReferences(View view) {
+		editTextHeight = (EditText) view.findViewById(R.id.editTextHeight);
+		radioMale = (RadioButton) view.findViewById(R.id.radioMale);
+		radioFemale = (RadioButton) view.findViewById(R.id.radioFemale);
+		buttonConfirm = (Button) view.findViewById(R.id.buttonConfirm);
+		buttonConfirm.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				confirmClickHandler(v);
+			}
+		});
 	}
 
 	public void confirmClickHandler(View view) {
@@ -80,8 +78,6 @@ public class UserSettingsActivity extends Activity {
 			}
 
 			dataHandler.saveUserSettings(userSettings);
-			finish();
-			break;
 		}
 	}
 }
